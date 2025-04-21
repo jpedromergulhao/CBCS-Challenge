@@ -9,7 +9,7 @@ interface Task {
   createdAt: Date;
 }
 
-let lastID = 0;
+let lastID: number = 0;
 
 // Generates a unique ID based on current timestamp and avoid duplicate IDs when tasks are created rapidly
 const generateId = (): number => {
@@ -52,7 +52,10 @@ const TodoList: React.FC = () => {
 
   // Add a new task to the list
   const addTask = (): void => {
-    if (newTask.trim() === "") return;
+    if (newTask.trim() === ""){
+      alert("Please, provide a task name");
+      return;
+    }
 
     const task: Task = {
       id: generateId(),
